@@ -1,2 +1,2 @@
-import "./style.css";
-import "./tailwind.css";
+import './style.css';
+import './tailwind.css';
