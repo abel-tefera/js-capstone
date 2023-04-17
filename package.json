@@ -6,7 +6,11 @@
   "scripts": {
     "build": "webpack --mode development",
     "start": "webpack serve --open",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "stylelint": "stylelint \"**/*.{css,scss}\"",
+    "eslint": "eslint .",
+    "hint": "hint .",
+    "fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix"
   },
   "repository": {
     "type": "git",
