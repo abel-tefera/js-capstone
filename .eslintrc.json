@@ -12,6 +12,7 @@
     "extends": ["airbnb-base"],
     "rules": {
       "no-shadow": "off",
+      "require-jsdoc": 0,
       "no-param-reassign": "off",
       "eol-last": "off",
       "import/extensions": [ 1, {
@@ -22,12 +23,14 @@
       "class-methods-use-this": "off",
       "prefer-destructuring": "off"
     },
+    
     "ignorePatterns": [
       "coverage/",
       "tests/",
       "public/",
       "postcss.config.js",
       "webpack.config.js",
-      "tailwind.config.js"
+      "tailwind.config.js",
+      "dist/"
     ]
   }
