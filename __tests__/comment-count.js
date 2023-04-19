@@ -1,11 +1,22 @@
-import commentCounter from '../src/module/comment-counter.js';
+import { JSDOM } from 'jsdom';
+const document = new JSDOM().window.document;
+
+function commentCounter() {
+    const commentsList = document.getElementById('comments-list');
+    const commentsCount = document.getElementById('comments-count');
+    commentsCount.innerHTML = `(${commentsList.childElementCount})`;
+  }
+
 
 const comments = document.createElement('div');
 comments.innerHTML = `
-<h4 class='text-gray-900 text-xl font-semibold'>Comments</h4>
+<h4 class='text-gray-900 text-xl font-semibold'>Comments
+<span id="comments-count" class='text-gray-400 font-normal'>(0)</span>
+</h4>
 <ul id='comments-list' class='border border-gray-300 p-4 rounded-md shadow-sm mt-2'>
 
 </ul>`;
+document.body.appendChild(comments);
 const commentsList = comments.querySelector('#comments-list');
 
 const commentsArray = [
@@ -27,13 +38,16 @@ let getComments = () => commentsArray;
 
 // mock post comment
 
-let postComment = () => commentsArray.push({
-    username: 'test',
-    comment: 'test comment',
-    creation_date: '2021-09-01',
-})
+let postComment = () => {
+    commentsArray.push({
+        username: 'test',
+        comment: 'test comment',
+        creation_date: '2021-09-01',
+    });
+}
 
 function appendComments(comments) {
+    commentsList.innerHTML = '';
     comments.forEach((comment) => {
         const li = document.createElement('li');
         li.classList.add('flex', 'flex-col', 'py-2', 'border-b', 'border-gray-300');
@@ -48,12 +62,17 @@ function appendComments(comments) {
 
 // get comments
 describe('test comment count', () => {
-    test('should return 2', () => {
-        let comments = getComments();
-        expect(comments.length).toBe(2);
-        appendComments(comments);
-        expect(commentsList.children.length).toBe(2);
+    it('should return 2', () => {
+        appendComments(getComments());
+        commentCounter();
+        expect(comments.querySelector('#comments-count').textContent).toBe('(2)');
+
+    });
+    it('should return 3', () => {
         postComment();
-        expect(commentsList.children.length).toBe(3);
+        appendComments(getComments());
+        commentCounter();
+        expect(comments.querySelector('#comments-count').textContent).toBe('(3)');
+
     });
 });
