@@ -1,6 +1,5 @@
 import { getComments } from '../api/comments.js';
-import  commentCounter  from '../module/comment-counter.js';
-
+import commentCounter from '../module/comment-counter.js';
 
 const modalClasses = 'border border-gray-300 modal-container bg-white w-11/12 md:max-w-lg mx-auto rounded overflow-y-auto shadow-2xl z-50 max-h-[90vh]';
 const modalContainerClasses = 'main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster';
