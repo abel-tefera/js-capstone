@@ -1,17 +1,17 @@
 const modalClasses =
-  "border border-teal-500 modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-scroll max-h-[90vh]";
-const classes =
+  "border border-blue-500 modal-container bg-white w-11/12 md:max-w-lg mx-auto rounded shadow-lg z-50 overflow-y-scroll max-h-[90vh]";
+const modalContainerClasses =
   "main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster";
 const createModal = (item) => {
   const modalContainer = document.createElement("div");
-  modalContainer.classList.add(...classes.split(" "));
+  modalContainer.id = "modal";
+  modalContainer.classList.add(...modalContainerClasses.split(" "));
   const modal = document.createElement("div");
-  modal.id = "modal";
   modal.classList.add(...modalClasses.split(" "));
   const modalContent = document.createElement("div");
   modalContent.classList.add("py-4", "px-6", "text-left");
   modalContent.innerHTML = `<div class="flex justify-between items-center pb-3">
-    <p class="text-2xl font-bold">Header</p>
+    <p class="text-2xl font-bold">${item.title}</p>
     <div id="close-modal" class="modal-close cursor-pointer z-50">
       <svg
         class="fill-current text-black"
@@ -30,16 +30,11 @@ const createModal = (item) => {
   <div class="my-5">
     <div>
       <img
-        src="https://picsum.photos/200/300"
+        src="${item.img}"
         class="h-48 md:h-60 lg:-h-96 w-full object-center mx-auto"
         alt="image"
       />
     </div>
-    <p class="mt-4">
-      Inliberali Persius Multi iustitia pronuntiaret expeteretur sanos
-      didicisset laus angusti ferrentur arbitrium arbitramur huic
-      desiderent.?
-    </p>
     <div class="mt-4">
       <!-- comments list -->
       <h4 class="text-gray-900 text-xl font-semibold">Comments</h4>

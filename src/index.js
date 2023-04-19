@@ -1,11 +1,8 @@
-import "./style.css";
-import "./tailwind.css";
-
+import './style.css';
+import './tailwind.css';
+import { item } from './views/item';
+import { getItems } from './api/getItems';
 import createModal from "./modules/modal";
-
-// modal
-
-const openButton = document.querySelector("#open-modal");
 
 const modalClose = () => {
   const modal = document.querySelector("#modal");
@@ -13,16 +10,12 @@ const modalClose = () => {
   modal.classList.add("fadeOut");
   setTimeout(() => {
     modal.style.display = "none";
-    document.body.removeChild(modal);
+    modal.parentElement.removeChild(modal);
   }, 500);
 };
 
-const openModal = () => {
-  const modal = createModal({
-    title: "Modal title",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In libero nisl, aliquam ut nisl vel, aliquam aliquet nisl. Donec euismod, nisl vel aliquam aliquet, nisl nisl aliquam nisl, nec aliquam nisl nisl vel nisl. Donec euismod, nisl vel aliquam aliquet, nisl nisl aliquam nisl, nec aliquam nisl nisl vel nisl.",
-  });
+const openModal = (title, img, id) => {
+  const modal = createModal({ title, img, id});
   document.body.appendChild(modal);
   const closeButton = document.querySelector("#close-modal");
   closeButton.addEventListener("click", modalClose);
@@ -30,16 +23,6 @@ const openModal = () => {
   modal.classList.add("fadeIn");
   modal.style.display = "flex";
 };
-
-openButton.addEventListener("click", openModal);
-import { getItems } from './api/getItems';
-import './style.css';
-import './tailwind.css';
-import { item } from './views/item';
-// import logo from './assets/logo.jpg';
-
-// const img = document.querySelector('brand');
-// img.src = mainImage;
 
 customElements.define('item-card', item);
 
@@ -63,6 +46,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     likes="0"
     >
     </item-card>`;
+    const commentBtn = document.createElement('button');
+    const commentBtnClasses = "comment-btn bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded";
+    commentBtn.classList.add(...commentBtnClasses.split(" "));
+    commentBtn.innerHTML = "Comment";
+    commentBtn.addEventListener("click", () => {
+      openModal( title, primaryImageSmall, objectId);
+    });
+    itemDiv.appendChild(commentBtn);
     itemsContainer.appendChild(itemDiv);
   });
 });
