@@ -1,4 +1,3 @@
-
 import './style.css';
 import './tailwind.css';
 import { item } from './views/item.js';
@@ -48,8 +47,7 @@ const handleSubmit = (e, id) => {
   }, 3000);
 };
 
-const openModal = (title, img) => {
-  const id = `${title.length + img.length}`;
+const openModal = (title, img, id) => {
   const modal = createModal({ title, img, id });
   document.body.appendChild(modal);
   const closeButton = document.querySelector('#close-modal');
@@ -88,7 +86,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     commentBtn.classList.add(...commentBtnClasses.split(' '));
     commentBtn.innerHTML = 'Comment';
     commentBtn.addEventListener('click', () => {
-      openModal(title, primaryImageSmall, objectId);
+      openModal(title, primaryImageSmall, objectID);
     });
     itemDiv.appendChild(commentBtn);
     itemsContainer.appendChild(itemDiv);
