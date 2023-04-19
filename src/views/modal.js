@@ -1,4 +1,6 @@
 import { getComments } from '../api/comments.js';
+import  commentCounter  from '../module/comment-counter.js';
+
 
 const modalClasses = 'border border-gray-300 modal-container bg-white w-11/12 md:max-w-lg mx-auto rounded overflow-y-auto shadow-2xl z-50 max-h-[90vh]';
 const modalContainerClasses = 'main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster';
@@ -17,6 +19,7 @@ const createModal = (item) => {
 
       commentsList.appendChild(li);
     });
+    commentCounter();
   });
 
   const modalContainer = document.createElement('div');
@@ -53,7 +56,9 @@ const createModal = (item) => {
     </div>
     <div class='mt-4'>
       <!-- comments list -->
-      <h4 class='text-gray-900 text-xl font-semibold'>Comments</h4>
+      <h4 class='text-gray-900 text-xl font-semibold'>Comments
+        <span id="comments-count" class='text-gray-400 font-normal'>(0)</span>
+      </h4>
       <ul id='comments-list' class='border border-gray-300 p-4 rounded-md shadow-sm mt-2'>
 
       </ul>
