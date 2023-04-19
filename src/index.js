@@ -33,7 +33,7 @@ const handleSubmit = (e, id) => {
     <p class='font-bold'>${commentObj.username}</p>
     <p class='text-sm text-gray-500'>${commentObj.creation_date}</p>
   </div>
-  <p class='text-sm'>${comment.commentObj}</p>`;
+  <p class='text-sm'>${commentObj.comment}</p>`;
 
   commentsList.appendChild(li);
   const span = document.createElement('span');
