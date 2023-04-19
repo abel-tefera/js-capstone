@@ -21,6 +21,21 @@ const handleSubmit = (e, id) => {
   const name = document.querySelector('#name').value;
   const comment = document.querySelector('#comment').value;
   postComment(id, name, comment);
+  const commentsList = document.querySelector('#comments-list');
+  const commentObj = {
+    username: name,
+    comment,
+    creation_date: new Date().toLocaleString(),
+  };
+  const li = document.createElement('li');
+  li.classList.add('flex', 'flex-col', 'py-2', 'border-b', 'border-gray-300');
+  li.innerHTML = `<div class='flex justify-between items-center'>
+    <p class='font-bold'>${commentObj.username}</p>
+    <p class='text-sm text-gray-500'>${commentObj.creation_date}</p>
+  </div>
+  <p class='text-sm'>${comment.commentObj}</p>`;
+
+  commentsList.appendChild(li);
   const span = document.createElement('span');
   span.classList.add('font-light', 'text-sm', 'text-green-600');
   span.innerHTML = 'Comment added successfully';
