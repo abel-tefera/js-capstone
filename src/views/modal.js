@@ -1,6 +1,6 @@
 import { getComments } from '../api/comments.js';
 
-const modalClasses = 'border border-blue-500 modal-container bg-white w-11/12 md:max-w-lg mx-auto rounded shadow-lg z-50 overflow-y-scroll max-h-[90vh]';
+const modalClasses = 'border border-gray-300 modal-container bg-white w-11/12 md:max-w-lg mx-auto rounded overflow-y-auto shadow-2xl z-50 max-h-[90vh]';
 const modalContainerClasses = 'main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster';
 
 const createModal = (item) => {
@@ -8,7 +8,7 @@ const createModal = (item) => {
     const commentsList = document.querySelector('#comments-list');
     comments.forEach((comment) => {
       const li = document.createElement('li');
-      li.classList.add('flex', 'flex-col', 'py-2');
+      li.classList.add('flex', 'flex-col', 'py-2', 'border-b', 'border-gray-300');
       li.innerHTML = `<div class='flex justify-between items-center'>
         <p class='font-bold'>${comment.username}</p>
         <p class='text-sm text-gray-500'>${comment.creation_date}</p>
@@ -47,14 +47,14 @@ const createModal = (item) => {
     <div>
       <img
         src='${item.img}'
-        class='h-auto md:h-60 lg:-h-96 w-full object-center mx-auto'
+        class='md:h-60 lg:-h-96 w-full object-cover mx-auto'
         alt='image'
       />
     </div>
     <div class='mt-4'>
       <!-- comments list -->
       <h4 class='text-gray-900 text-xl font-semibold'>Comments</h4>
-      <ul id='comments-list' class='mt-2 max-h-40 overflow-y-scroll'>
+      <ul id='comments-list' class='border border-gray-300 p-4 rounded-md shadow-sm mt-2'>
 
       </ul>
       <form id='form-${item.id}' class='mt-4 shadow-sm'>
