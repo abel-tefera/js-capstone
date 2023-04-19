@@ -17,6 +17,8 @@
     "no-param-reassign": "off",
     "no-restricted-syntax": 0,
     "eol-last": "off",
+    "camelcase": 0,
+    "radix": 0,
     "import/extensions": [
       1,
       {

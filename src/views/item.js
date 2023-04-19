@@ -10,10 +10,10 @@ export class item extends HTMLElement {
   <span class="flex flex-row justify-between my-2">
     <p class="text-start text-lg break-all">${title.value}</p>
     <span class="text-end flex flex-row justify-end">
-      <p class="text-base px-2 text-center"><span class="text-red-400">${likes.value}</span> Likes</p>
+      <p class="text-base px-2 text-center"><span class="text-red-400" id="likes-count-${objectId.value}">${likes.value}</span></p>
       <button class="like-btn" id="like-btn-${objectId.value}">
         <svg
-          class="text-gray-300 w-6 h-auto fill-current"
+          class="text-gray-300 w-6 h-auto fill-current svg-img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
         >
