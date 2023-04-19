@@ -1,8 +1,30 @@
+import { getComments } from "../api/comments.js";
+
 const modalClasses =
   "border border-blue-500 modal-container bg-white w-11/12 md:max-w-lg mx-auto rounded shadow-lg z-50 overflow-y-scroll max-h-[90vh]";
 const modalContainerClasses =
   "main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster";
+
+const comments = async (id) => {
+  return await getComments(id);
+};
+
 const createModal = (item) => {
+  getComments(item.id).then((comments) => {
+    const commentsList = document.querySelector(`#comments-list`);
+    comments.forEach((comment) => {
+      const li = document.createElement("li");
+      li.classList.add("flex", "flex-col", "py-2");
+      li.innerHTML = `<div class="flex justify-between items-center">
+        <p class="font-bold">${comment.username}</p>
+        <p class="text-sm text-gray-500">${comment.creation_date}</p>
+      </div>
+      <p class="text-sm">${comment.comment}</p>`;
+
+      commentsList.appendChild(li);
+    });
+  });
+
   const modalContainer = document.createElement("div");
   modalContainer.id = "modal";
   modalContainer.classList.add(...modalContainerClasses.split(" "));
@@ -31,43 +53,28 @@ const createModal = (item) => {
     <div>
       <img
         src="${item.img}"
-        class="h-48 md:h-60 lg:-h-96 w-full object-center mx-auto"
+        class="h-auto md:h-60 lg:-h-96 w-full object-center mx-auto"
         alt="image"
       />
     </div>
     <div class="mt-4">
       <!-- comments list -->
       <h4 class="text-gray-900 text-xl font-semibold">Comments</h4>
-      <ul class="mt-2">
-        <li class="flex items-center">
-          <div class="">
-            <p class="text-gray-700 font-semibold">
-              Abel
-              <span
-                id="comment-time"
-                class="font-light text-sm text-gray-600"
-              >
-                10:00 AM 10/10/2021
-              </span>
-            </p>
-            <p class="text-gray-600 text-sm">
-              Lorem ipsum dolor sit amet
-            </p>
-          </div>
-        </li>
+      <ul id="comments-list" class="mt-2 max-h-40 overflow-y-scroll">
+
       </ul>
-      <form class="mt-4 shadow-sm">
+      <form id="form-${item.id}" class="mt-4 shadow-sm">
         <h4 class="text-gray-900 text-xl font-semibold">Add Comment</h4>
         <div class="flex flex-col">
           <label
             for="name"
             class="text-gray-700 font-semibold mb-1"
           >
-
             Name
           </label>
           <input
             id="name"
+            name="name"
             type="text"
             class="border border-gray-300 p-2 rounded"
           />
@@ -80,6 +87,7 @@ const createModal = (item) => {
           </label>
           <textarea
             id="comment"
+            name="comment"
             class="border border-gray-300 p-2 rounded resize-none"
             rows="2"
           ></textarea>
@@ -92,6 +100,7 @@ const createModal = (item) => {
             Comment
           </button>
         </div>
+      </form>
     </div>
   `;
   modalContainer.appendChild(modal);
