@@ -2,6 +2,7 @@ import './style.css';
 import './tailwind.css';
 import { item } from './views/item.js';
 import { getItems } from './api/getItems.js';
+import { getLikes } from './api/getLikes.js';
 import { addLike } from './api/addLike.js';
 import createModal from './views/modal.js';
 import { postComment } from './api/comments.js';
