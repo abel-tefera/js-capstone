@@ -18,12 +18,12 @@
 }
 
 .fadeIn {
-  -webkit-animation-name: fadeIn;
+  -webkit-animation-name: fadein;
   animation-name: fadeIn;
 }
 
 .fadeOut {
-  -webkit-animation-name: fadeOut;
+  -webkit-animation-name: fadeout;
   animation-name: fadeOut;
 }
 

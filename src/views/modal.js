@@ -1,20 +1,14 @@
-import { getComments } from "../api/comments.js";
+import { getComments } from '../api/comments.js';
 
-const modalClasses =
-  "border border-blue-500 modal-container bg-white w-11/12 md:max-w-lg mx-auto rounded shadow-lg z-50 overflow-y-scroll max-h-[90vh]";
-const modalContainerClasses =
-  "main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster";
-
-const comments = async (id) => {
-  return await getComments(id);
-};
+const modalClasses = 'border border-blue-500 modal-container bg-white w-11/12 md:max-w-lg mx-auto rounded shadow-lg z-50 overflow-y-scroll max-h-[90vh]';
+const modalContainerClasses = 'main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster';
 
 const createModal = (item) => {
   getComments(item.id).then((comments) => {
-    const commentsList = document.querySelector(`#comments-list`);
+    const commentsList = document.querySelector('#comments-list');
     comments.forEach((comment) => {
-      const li = document.createElement("li");
-      li.classList.add("flex", "flex-col", "py-2");
+      const li = document.createElement('li');
+      li.classList.add('flex', 'flex-col', 'py-2');
       li.innerHTML = `<div class="flex justify-between items-center">
         <p class="font-bold">${comment.username}</p>
         <p class="text-sm text-gray-500">${comment.creation_date}</p>
@@ -25,13 +19,13 @@ const createModal = (item) => {
     });
   });
 
-  const modalContainer = document.createElement("div");
-  modalContainer.id = "modal";
-  modalContainer.classList.add(...modalContainerClasses.split(" "));
-  const modal = document.createElement("div");
-  modal.classList.add(...modalClasses.split(" "));
-  const modalContent = document.createElement("div");
-  modalContent.classList.add("py-4", "px-6", "text-left");
+  const modalContainer = document.createElement('div');
+  modalContainer.id = 'modal';
+  modalContainer.classList.add(...modalContainerClasses.split(' '));
+  const modal = document.createElement('div');
+  modal.classList.add(...modalClasses.split(' '));
+  const modalContent = document.createElement('div');
+  modalContent.classList.add('py-4', 'px-6', 'text-left');
   modalContent.innerHTML = `<div class="flex justify-between items-center pb-3">
     <p class="text-2xl font-bold">${item.title}</p>
     <div id="close-modal" class="modal-close cursor-pointer z-50">
