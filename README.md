@@ -1,6 +1,6 @@
 <div align="center">
  
-  <h2><b>Art Gallery</b></h2>
+  <h2><b>Metro Art</b></h2>
 
 </div>
 
@@ -8,29 +8,30 @@
 
 # 📗 Table of Contents
 
-- [📗 Table of Contents](#-table-of-contents)
-- [📖 Art Gallery](#-art-gallery)
+- [📖 Metro Art](#-art-gallery)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo](#-live-demo)
   - [Video Presentation](#video-presentation)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
-    - [Setup](#setup)
-    - [Install](#install)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+- [💻 Getting Started ](#-getting-started-)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors ](#-authors-)
+- [🔭 Future Features ](#-future-features-)
+- [🤝 Contributing ](#-contributing-)
+- [⭐️ Show your support ](#️-show-your-support-)
+- [🙏 Acknowledgments ](#-acknowledgments-)
+- [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Art Gallery<a name="about-project"></a>
+# 📖 Metro Art <a name="about-project"></a>
 
-- Welcome to Art Gallery, a web application that allows users to explore art pieces from the museums API. Users can interact with the art by liking and commenting on the images. Join us in this virtual art gallery and share your thoughts on the beauty of art. \*
+- Welcome to Metro Art, a web application that allows users to explore art pieces from the museums API. Users can interact with the art by liking and commenting on the images. Join us in this virtual art gallery and share your thoughts on the beauty of art. \*
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -45,6 +46,16 @@
     <li> Webpack </li>
   </ul>
 </details>
+<details>
+  <summary>APIs Used</summary>
+  <ul>
+    <li><a href="https://metmuseum.github.io/">The Metropolitan Museum of Art Collection API</a></li>
+  </ul>
+  <ul>
+    <li><a href="https://microverse.notion.site/Involvement-API-869e60b5ad104603aa6db59e08150270">Involvement API</a></li>
+  </ul>
+
+</details>
 
 <!-- Features -->
 
@@ -52,7 +63,7 @@
 
 - **Markup**
 - **Api Fetch**
-- **Styling**
+- **Styling using Tailwind classes**
 <!-- - **[key_feature_3]** -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -61,7 +72,7 @@
 
 ## 🚀 Live Demo
 
-[Live Version](https://abel-tefera.github.io/js-capstone/public/)
+[Metro Art](https://abel-tefera.github.io/js-capstone/public/)
 
 ## Video Presentation <a name="video-presentation"></a>
 
@@ -69,15 +80,21 @@ Click on this [Video Link](https://files.fm/f/t8at5tkvu) to view the video walkt
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-GETTING STARTED
-
 ## 💻 Getting Started <a name="getting-started"></a>
+
+> Steps to run: 
 
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need: NodeJs
+In order to clone and run this project you need:
+
+- A working browser
+- Installation of Git
+- Internet browser
+- Code editor like VS code
+- Node JS
 
 ### Setup
 
@@ -98,18 +115,30 @@ Install this project with:
   npm start
 ```
 
+### Usage
+
+To run the project, execute the following commands:
+
+- Run `npm start` after installation
+- A new browser window should open with the website
+
+### Deployment
+
+You can deploy this project using: N/A
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Abel T. Belay**
+👤 **Abel**
 
 - GitHub: [@abel-tefera](https://github.com/abel-tefera)
 - Twitter: [@abelteferabelay](https://twitter.com/abelteferabelay)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/abel-tefera-b1b625153)
-- 👤 **kimita**
+
+👤 **kimita**
 
 - [@Github](https://github.com/kimitawanjohi)
 - [@Twitter](https://twitter.com/kimitaw)
@@ -119,9 +148,9 @@ Install this project with:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[ fetch art from API ]**
-- [ ] **[ display the art ]**
-- [ ] **[ get user engagements ]**
+- [ ] **Reservations Feature**
+- [ ] **More Categories**
+- [ ] **User Authentication**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -141,7 +170,9 @@ If you like this project feel free to leave comments and contact via given autho
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- [museums API](https://www.rijksmuseum.nl/en/api)
+- This project consumes the [The Metropolitan Museum of Art Collection API](https://metmuseum.github.io/) for free. 
+
+- We would like to thank Microverse for giving us the opportunity to work on this group project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
