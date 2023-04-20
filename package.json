@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode development",
     "start": "webpack serve --open",
-    "test": "jest --watch",
+    "test": "jest --watchAll --coverage",
     "stylelint": "stylelint \"**/*.{css,scss}\"",
     "eslint": "eslint .",
     "hint": "hint .",
@@ -47,5 +47,9 @@
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.1"
+  },
+  "dependencies": {
+    "jest": "^29.5.0",
+    "jsdom": "^21.1.1"
   }
 }
