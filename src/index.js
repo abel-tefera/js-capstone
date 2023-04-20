@@ -7,6 +7,7 @@ import { addLike } from './api/addLike.js';
 import createModal from './views/modal.js';
 import { postComment } from './api/comments.js';
 import { itemsCounter } from './modules/itemsCounter.js';
+import commentCounter from './modules/comment-counter';
 
 const modalClose = () => {
   const modal = document.querySelector('#modal');
@@ -43,10 +44,11 @@ const handleSubmit = (e, id) => {
   span.classList.add('font-light', 'text-sm', 'text-green-600');
   span.innerHTML = 'Comment added successfully';
   form.appendChild(span);
+  form.reset();
   setTimeout(() => {
     span.parentElement.removeChild(span);
-    form.reset();
   }, 3000);
+  commentCounter();
 };
 
 const openModal = (title, img, id, objectDate, period, repository) => {
