@@ -7,7 +7,7 @@ export class item extends HTMLElement {
     src="${imgSrc.value}"
     class="rounded aspect-square"
   />
-  <span class="flex flex-row justify-between my-2">
+  <span class="flex flex-row justify-between my-2 h-12 items-center">
     <p class="text-start text-lg break-all">${title.value}</p>
     <span class="text-end flex flex-row justify-end">
       <p class="text-base px-2 text-center"><span class="text-red-400" id="likes-count-${objectID.value}">${likes.value}</span></p>
