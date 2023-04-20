@@ -65,7 +65,7 @@
 
 ## Video Presentation <a name="video-presentation"></a>
 
-Click on this [Coming Soon](#) to view the video walkthrough of this project
+Click on this [Video Link](https://files.fm/f/t8at5tkvu) to view the video walkthrough of this project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
