@@ -1,5 +1,5 @@
 import { getComments } from '../api/comments.js';
-import commentCounter from '../module/comment-counter.js';
+import commentCounter from '../modules/comment-counter.js';
 
 const modalClasses = 'border border-gray-300 modal-container bg-white w-11/12 md:max-w-lg mx-auto rounded overflow-y-auto shadow-2xl z-50 max-h-[90vh]';
 const modalContainerClasses = 'main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster';
@@ -9,7 +9,13 @@ const createModal = (item) => {
     const commentsList = document.querySelector('#comments-list');
     comments.forEach((comment) => {
       const li = document.createElement('li');
-      li.classList.add('flex', 'flex-col', 'py-2', 'border-b', 'border-gray-300');
+      li.classList.add(
+        'flex',
+        'flex-col',
+        'py-2',
+        'border-b',
+        'border-gray-300',
+      );
       li.innerHTML = `<div class='flex justify-between items-center'>
         <p class='font-bold'>${comment.username}</p>
         <p class='text-sm text-gray-500'>${comment.creation_date}</p>
@@ -28,7 +34,8 @@ const createModal = (item) => {
   modal.classList.add(...modalClasses.split(' '));
   const modalContent = document.createElement('div');
   modalContent.classList.add('py-4', 'px-6', 'text-left');
-  modalContent.innerHTML = `<div class='flex justify-between items-center pb-3'>
+  modalContent.innerHTML = `<div class='flex flex-col'>
+  <div class="flex items-center justify-between">
     <p class='text-2xl font-bold'>${item.title}</p>
     <div id='close-modal' class='modal-close cursor-pointer z-50'>
       <svg
@@ -43,6 +50,14 @@ const createModal = (item) => {
         ></path>
       </svg>
     </div>
+    </div>
+    <div class="flex flex-col mt-3 w-full">
+    <span class="flex flex-row justify-between items-start">
+      <p class="text-base text-gray-700">Dated: <span class="font-semibold">${item.objectDate}</span></p>
+      <p class="text-base text-gray-700">Period: <span class="font-semibold">${item.period}</span></p>
+    </span>
+    <p class="text-base font-bold">${item.repository}</p>
+  </div>
   </div>
   <!--Body-->
   <div class='my-5'>
