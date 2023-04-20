@@ -6,6 +6,7 @@ import { getLikes } from './api/getLikes.js';
 import { addLike } from './api/addLike.js';
 import createModal from './views/modal.js';
 import { postComment } from './api/comments.js';
+import { itemsCounter } from './counter/itemsCounter';
 
 const modalClose = () => {
   const modal = document.querySelector('#modal');
@@ -116,6 +117,8 @@ const main = async () => {
       svg.classList.add('text-red-400');
     });
   });
+
+  itemsCounter();
 };
 
 main();
