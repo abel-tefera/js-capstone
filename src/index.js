@@ -6,7 +6,7 @@ import { getLikes } from './api/getLikes.js';
 import { addLike } from './api/addLike.js';
 import createModal from './views/modal.js';
 import { postComment } from './api/comments.js';
-import { itemsCounter } from './counter/itemsCounter';
+import { itemsCounter } from './modules/itemsCounter.js';
 
 const modalClose = () => {
   const modal = document.querySelector('#modal');
@@ -49,8 +49,10 @@ const handleSubmit = (e, id) => {
   }, 3000);
 };
 
-const openModal = (title, img, id) => {
-  const modal = createModal({ title, img, id });
+const openModal = (title, img, id, objectDate, period, repository) => {
+  const modal = createModal({
+    title, img, id, objectDate, period, repository,
+  });
   document.body.appendChild(modal);
   const closeButton = document.querySelector('#close-modal');
   const form = document.querySelector(`#form-${id}`);
@@ -73,7 +75,9 @@ const main = async () => {
     likesObj[item_id] = likes;
   });
   const itemsContainer = document.querySelector('.items-container');
-  items.forEach(({ title, primaryImageSmall, objectID }) => {
+  items.forEach(({
+    title, primaryImageSmall, objectID, objectDate, period, repository,
+  }) => {
     const likes = likesObj[objectID] ? likesObj[objectID] : 0;
     const itemDiv = document.createElement('div');
     itemDiv.classList.add(
@@ -94,7 +98,7 @@ const main = async () => {
     commentBtn.classList.add(...commentBtnClasses.split(' '));
     commentBtn.innerHTML = 'Comment';
     commentBtn.addEventListener('click', () => {
-      openModal(title, primaryImageSmall, objectID);
+      openModal(title, primaryImageSmall, objectID, objectDate, period, repository);
     });
     itemDiv.appendChild(commentBtn);
     itemsContainer.appendChild(itemDiv);
